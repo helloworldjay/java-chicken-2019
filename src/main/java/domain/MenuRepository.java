@@ -21,4 +21,13 @@ public class MenuRepository {
     public static List<Menu> menus() {
         return Collections.unmodifiableList(menus);
     }
+
+    public Menu getMenuByNumber(int menuNumber) {
+        for (int i = 0; i < menus.size(); i++) {
+            if (menus.get(i).getNumber() == menuNumber) {
+                return menus.get(i);
+            }
+        }
+        return new Menu(-1,"dummy",Category.BEVERAGE,-1); // 처리 애매
+    }
 }
