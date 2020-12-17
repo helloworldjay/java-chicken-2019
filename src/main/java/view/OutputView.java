@@ -68,8 +68,7 @@ public class OutputView {
         MenuRepository menuRepository = table.getTableOrderList();
         System.out.println("## 주문 내역");
         System.out.println("메뉴 수량 금액");
-        for (int i = 0; i < menuRepository.menus().size(); i++) {
-            Menu menu = menuRepository.getMenuByNumber(i);
+        for (Menu menu : menuRepository.menus()) {
             if (menu.getOrderNumber() != 0 ) {
                 System.out.println(menu.getPriceMessage());
             }
@@ -83,8 +82,7 @@ public class OutputView {
         MenuRepository menuRepository = table.getTableOrderList();
         int totalPrice = 0;
         int chickenNumber = 0;
-        for (int i = 0; i < menuRepository.menus().size(); i ++) {
-            Menu menu = menuRepository.getMenuByNumber(i);
+        for (Menu menu : menuRepository.menus()) {
             if ( menu.isChicken() ) {
                 chickenNumber += 1;
             }
