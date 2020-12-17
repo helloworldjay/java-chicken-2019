@@ -15,7 +15,7 @@ public class PaymentMenu {
         Table table = TableRepository.getTable(tableNumber);
         OutputView.printPayment(table);
         int payment = InputView.payCardOrCash();
-        OutputView.printTotalPrice(table);
+        OutputView.printTotalPrice(table, payment);
         table.clearTable();
         MainSelection.selectMain(tables);
     }

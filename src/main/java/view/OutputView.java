@@ -77,7 +77,7 @@ public class OutputView {
         System.out.println("## " + table.toString() + "번 테이블의 결제를 진행합니다.");
     }
 
-    public static void printTotalPrice(Table table) {
+    public static void printTotalPrice(Table table, int payment) {
         System.out.println();
         MenuRepository menuRepository = table.getTableOrderList();
         int totalPrice = 0;
@@ -90,6 +90,9 @@ public class OutputView {
         }
         int disCount = Discount.makeChickenDiscount(chickenNumber);
         totalPrice -= disCount;
+        if (payment == 2) {
+            totalPrice = Discount.cashDiscount(totalPrice);
+        }
         System.out.println("## 최종 결제할 금액");
         System.out.println( totalPrice + "원"); // string + int는 자동 string 형번환
     }
